@@ -1,0 +1,84 @@
+/* CSS Document */
+.cahnrs-people-card-set {
+	margin: 0 -0.25rem;
+	overflow: hidden;
+	font-size: 0;
+}
+
+.cahnrs-people-card-set .cahnrs-people-card {
+	display: inline-block;
+	vertical-align: top;
+	padding: 0 0 0.5rem 0;
+	font-size: 1rem;
+}
+
+.cahnrs-people-card-set.columns-1 .cahnrs-people-card { width: auto;}
+.cahnrs-people-card-set.columns-2 .cahnrs-people-card { width: 50%;}
+.cahnrs-people-card-set.columns-3 .cahnrs-people-card { width: 33.33%;}
+.cahnrs-people-card-set.columns-4 .cahnrs-people-card { width: 25%;}
+.cahnrs-people-card-set.columns-5 .cahnrs-people-card { width: 20%;}
+
+.cahnrs-people-card-set .cahnrs-people-card > ul {
+	list-style-type: none;
+	margin: 0 0.25rem;
+	padding: 0 0 1rem 0;
+	min-height: 300px;
+}
+
+.cahnrs-people-card-set .cahnrs-people-card > ul > li {
+	padding: 0;
+	margin: 0 0.75rem;
+}
+.cahnrs-people-card-set .cahnrs-people-card > ul > li.profile-image {
+	margin: 0;
+	padding-bottom: 0.5rem;
+}
+
+.cahnrs-people-card-set .cahnrs-people-card > ul > li.profile-image img {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+}
+
+.cahnrs-people-card-set .cahnrs-people-card > ul > li.profile-name {
+	color: #981e32;
+	font-weight: bold;
+	font-size: 0.9rem;
+}
+
+.cahnrs-people-card-set .cahnrs-people-card > ul > li.profile-title {
+	padding-bottom: 0.5rem;
+}
+
+.cahnrs-people-card-set.columns-1 {
+	margin: 0;
+}
+
+.cahnrs-people-card-set .profile-card {
+	font-size: 0.8rem;
+	word-wrap: break-word;
+	background: #fff;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+}
+
+@media screen and (max-width: 700px) {
+	.cahnrs-people-card-set.columns-3 .cahnrs-people-card { width: 50%;}
+	.cahnrs-people-card-set.columns-4 .cahnrs-people-card { width: 50%;}
+	.cahnrs-people-card-set.columns-5 .cahnrs-people-card { width: 33.33%;}
+}
+
+@media screen and (max-width: 550px) {
+	.cahnrs-people-card-set.columns-5 .cahnrs-people-card { width: 50%;}
+}
+
+@media screen and (max-width: 400px) {
+	.cahnrs-people-card-set.columns-1 .cahnrs-people-card,
+	.cahnrs-people-card-set.columns-3 .cahnrs-people-card,
+	.cahnrs-people-card-set.columns-4 .cahnrs-people-card,
+	.cahnrs-people-card-set.columns-5 .cahnrs-people-card { width: 100%;}
+}
+
+
+
