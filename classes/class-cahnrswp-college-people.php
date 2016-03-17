@@ -26,7 +26,8 @@ class CAHNRSWP_College_People {
 		$defaults = array( 
 			'display' => 'card',
 			'columns' => 4,
-			'netids'  => '', 
+			'netids'  => '',
+			'image'   => 1, 
 			);
 		
 		$atts = shortcode_atts( $defaults , $atts , 'cahnrs_people' );
@@ -37,13 +38,13 @@ class CAHNRSWP_College_People {
 			
 			$net_ids = explode( ',' , $atts['netids'] );
 			
-			foreach( $net_ids as $slug ){
+			foreach( $net_ids as $netid ){
 				
 				$person = new CAHNRSWP_College_Person();
 				
-				$slug = str_replace( '.' , '-' , $slug );
+				$netid = str_replace( '.' , '-' , $netid );
 				
-				if ( $person->set_person_by_slug( $slug , $atts ) ) $people[] = $person;
+				if ( $person->set_person_by_netid( $netid , $atts ) ) $people[] = $person;
 				
 			} // end foreach
 			
@@ -54,6 +55,9 @@ class CAHNRSWP_College_People {
 		
 		switch( $atts['display'] ){
 			
+			case 'sidebar':
+				$html = $this->get_cahnrs_people_sidebar( $atts , $people );
+				break;
 			default: 
 				$html = $this->get_cahnrs_people_card( $atts , $people );
 				break;
@@ -85,7 +89,11 @@ class CAHNRSWP_College_People {
 			
 				$html .= '<ul class="profile-card">';
 				
-					$html .= '<li class="profile-image"><img src="' . $image . '" alt="Profile Picture for ' . $person->get_name() . '"/></li>';
+					if ( $atts['image'] ){
+				
+						$html .= '<li class="profile-image"><img src="' . $image . '" alt="Profile Picture for ' . $person->get_name() . '"/></li>';
+					
+					} // end if
 					
 					$html .= '<li class="profile-name">' . $person->get_name() . '</li>';
 					
@@ -106,5 +114,54 @@ class CAHNRSWP_College_People {
 		return $html;
 		
 	} // end get_cahnrs_people_card
+	
+
+	/**
+	 * Gets HTML for display=sidebar in cahnrs_people
+	 * @param array $people Array of CAHNRSWP_College_Person instances
+	 * @param array $atts Shortcode attributes with defaults set
+	 * @return string HTML for the card(s)
+	 */
+	private function get_cahnrs_people_sidebar( $atts , $people ){
+		
+		//var_dump( $people );
+		
+		$html = '<div class="cahnrs-people-sidebar-set">';
+		
+		foreach( $people as $index => $person ){
+			
+			$image = $person->get_image();
+			
+			if ( ! $image ) $image = plugins_url( 'images/placeholder.jpg' , dirname(__FILE__) );
+			
+			$html .= '<div class="cahnrs-people-item cahnrs-people-sidebar profile-' . $person->get_slug() . '">';
+			
+				$html .= '<ul class="profile-sidebar">';
+				
+					if ( $atts['image'] ){
+				
+						$html .= '<li class="profile-image"><img src="' . $image . '" alt="Profile Picture for ' . $person->get_name() . '"/></li>';
+					
+					} // end if
+					
+					$html .= '<li class="profile-name">' . $person->get_name() . '</li>';
+					
+					$html .= '<li class="profile-title">' . $person->get_title() . '</li>';
+					
+					$html .= '<li class="profile-email"><a href="mailto:' . $person->get_email() . '">' . $person->get_email() . '</a></li>';
+					
+					$html .= '<li class="profile-phone">Phone: ' . $person->get_phone() . '</li>';
+				
+				$html .= '</ul>';
+		
+			$html .= '</div>';
+			
+		} // end foreach
+		
+		$html .= '</div>';
+		
+		return $html;
+		
+	} // end get_cahnrs_people_sidebar
 	
 } // end CAHNRSWP_College_People

@@ -74,9 +74,9 @@ class CAHNRSWP_College_Person {
 	 * @param $slug
 	 * @param array $atts Attributes from shortcode
 	 */
-	public function set_person_by_slug( $slug , $atts ){
+	public function set_person_by_netid( $netid , $atts ){
 		
-		$url = 'https://people.wsu.edu/wp-json/wp/v2/people?filter[name]=' . $slug;
+		$url = 'https://people.wsu.edu/wp-json/wp/v2/people?filter[meta_key]=_wsuwp_profile_ad_nid&filter[meta_value]=' . $netid;
 		
 		$request = wp_remote_get( $url , array( 'sslverify' => false, ) );
 		

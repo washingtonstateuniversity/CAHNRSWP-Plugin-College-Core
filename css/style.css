@@ -1,4 +1,6 @@
 /* CSS Document */
+/** Card View ------------------------------- */
+
 .cahnrs-people-card-set {
 	margin: 0 -0.25rem;
 	overflow: hidden;
@@ -31,7 +33,6 @@
 }
 .cahnrs-people-card-set .cahnrs-people-card > ul > li.profile-image {
 	margin: 0;
-	padding-bottom: 0.5rem;
 }
 
 .cahnrs-people-card-set .cahnrs-people-card > ul > li.profile-image img {
@@ -44,6 +45,7 @@
 	color: #981e32;
 	font-weight: bold;
 	font-size: 0.9rem;
+	padding-top: 0.5rem;
 }
 
 .cahnrs-people-card-set .cahnrs-people-card > ul > li.profile-title {
@@ -80,5 +82,39 @@
 	.cahnrs-people-card-set.columns-5 .cahnrs-people-card { width: 100%;}
 }
 
+/** Sidebar View ------------------------------- */
+
+.cahnrs-people-sidebar-set .cahnrs-people-sidebar {
+	margin: 0 0 0.75rem;
+	border-bottom: 1px solid #ddd;
+}
+
+.cahnrs-people-sidebar-set .cahnrs-people-sidebar > ul {
+	list-style-type: none;
+	padding: 0 0 0.75rem;
+}
+
+.cahnrs-people-sidebar-set .cahnrs-people-sidebar > ul > li {
+	margin: 0 0 0 60px;
+	font-size: 0.8rem;
+}
+
+.cahnrs-people-sidebar-set .cahnrs-people-sidebar > ul > li.profile-image {
+	width: 50px;
+	float: left;
+	margin: 0;
+}
+
+.cahnrs-people-sidebar-set .cahnrs-people-sidebar > ul > li.profile-image img {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+}
+
+.cahnrs-people-sidebar-set .cahnrs-people-sidebar > ul > li.profile-name {
+	color: #981e32;
+	font-weight: bold;
+	font-size: 0.9rem;
+}
 
 
